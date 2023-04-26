@@ -41,5 +41,13 @@ func (h *handler) GetOnePost(c *gin.Context) {
 }
 
 func (h *handler) SearchPosts(c *gin.Context) {
-
+	var posts []models.Post
+	if err := h.DB.Where("title ilike ?", "%"+c.Param("title")+"%").Find(&posts).Error; err != nil {
+		log.Println("searching posts in DB:", err)
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
+			"message": "Internal Server Error",
+		})
+		return
+	}
+	c.JSON(http.StatusOK, posts)
 }
