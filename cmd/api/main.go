@@ -11,9 +11,9 @@ import (
 )
 
 func main() {
-	DBName := flag.String("dbname", "crm_service", "Enter the name of DB")
-	DBUser := flag.String("dbuser", "crm_service", "Enter the name of a DB user")
-	DBPassword := flag.String("dbpassword", "crm_service", "Enter the password of user")
+	DBName := flag.String("dbname", "post_service", "Enter the name of DB")
+	DBUser := flag.String("dbuser", "post_service", "Enter the name of a DB user")
+	DBPassword := flag.String("dbpassword", "post_service", "Enter the password of user")
 	DBPort := flag.String("dbport", "5432", "Enter the port of DB")
 	flag.Parse()
 
